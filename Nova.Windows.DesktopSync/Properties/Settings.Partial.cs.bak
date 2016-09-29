@@ -1,0 +1,73 @@
+using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+
+namespace Nova.Windows.DesktopSync.Properties
+{
+    // This class allows you to handle specific events on the settings class:
+    //  The SettingChanging event is raised before a setting's value is changed.
+    //  The PropertyChanged event is raised after a setting's value is changed.
+    //  The SettingsLoaded event is raised after the setting values are loaded.
+    //  The SettingsSaving event is raised before the setting values are saved.
+    public partial class Settings
+    {
+        private const string ContentFolder = "\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets";
+        private static readonly string[] DefaultSyncFolders = new[]
+        {
+            Path.Combine(SyncConfig.GetFolder(Environment.SpecialFolder.ApplicationData), ContentFolder),
+            Path.Combine(SyncConfig.GetFolder(Environment.SpecialFolder.LocalApplicationData), ContentFolder)
+        };
+
+        public Settings()
+        {
+            // // To add event handlers for saving and changing settings, uncomment the lines below:
+            //
+            SettingChanging += SettingChangingEventHandler;
+            SettingsLoaded += SettingsLoadedEventHandler;
+            SettingsSaving += SettingsSavingEventHandler;
+            //
+        }
+
+        private void SettingsLoadedEventHandler(object sender, SettingsLoadedEventArgs e)
+        {
+            ConsoleColor.TextStatus.WriteLine("Settings Loaded.");
+
+
+        }
+
+        private void SettingChangingEventHandler(object sender, SettingChangingEventArgs e)
+        {
+            Console.Out.WriteProperty($"Setting Change ({e.SettingName})", e.NewValue);
+        }
+
+        private void SettingsSavingEventHandler(object sender, CancelEventArgs e)
+        {
+            ConsoleColor.TextStatus.WriteLine("Saving Settings...");
+        }
+
+        public static SyncConfig CreateDefaultSyncConfig()
+        {
+            var itemsQuery = from f in DefaultSyncFolders
+                select new SyncFolderConfig()
+                {
+                    Folder = f,
+                    MinimumKb = 150,
+                    AppendExtension = "jpg",
+                    SearchOption = SearchOption.AllDirectories,
+                };
+
+            var target = SyncConfig.GetFolder(Environment.SpecialFolder.CommonPictures);
+            if (!Directory.Exists(target))
+                target = SyncConfig.GetFolder(Environment.SpecialFolder.MyPictures);
+            if (!Directory.Exists(target))
+                Directory.CreateDirectory(target);
+            return new SyncConfig
+            {
+                TargetFolder = Path.Combine(target, "DesktopSync"),
+                SourceFolderConfigs = itemsQuery.ToArray()
+            };
+        }
+    }
+}
