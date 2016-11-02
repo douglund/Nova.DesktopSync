@@ -70,9 +70,10 @@ namespace Nova.Windows.DesktopSync.Properties
 
         public static SyncConfig CreateDefaultSyncConfig()
         {
-            var target = Environment.GetFolderPath(Environment.SpecialFolder.CommonPictures);
+            var target = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures); 
             if (!Directory.Exists(target))
-                target = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                target = Environment.GetFolderPath(Environment.SpecialFolder.CommonPictures);
+
             if (!Directory.Exists(target))
                 Directory.CreateDirectory(target);
             return new SyncConfig

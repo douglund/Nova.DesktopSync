@@ -6,18 +6,24 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Nova.Windows.DesktopSync.Configuration;
 using Nova.Windows.DesktopSync.Properties;
+using System.Diagnostics;
 
 namespace Nova.Windows.DesktopSync
 {
     internal class Program
     {
         private static SyncConfig Config => Settings.Default?.SyncConfig;
+        private static bool hideWindow;
 
         //[STAThread]
         private static void Main(string[] args)
         {
             try
             {
+                hideWindow = HasSwitch(args, "h", "hidden");
+                if (hideWindow)
+                    Console.Out.HideWindow();
+
                 ConsoleColor.TextTitle.WriteLineCenter($"BEGIN: DesktopSync");
                 ConsoleColor.TextStatus.WriteLine("Loading Configuration...");
 
@@ -26,8 +32,13 @@ namespace Nova.Windows.DesktopSync
 
                 VerifySyncConfig();
                 VerifyFolderConfig();
+
                 foreach (var folderConfig in Config.SyncFolders)
                     FolderSync(folderConfig);
+
+                if (!hideWindow && HasSwitch(args, "openTarget", "open", "o"))
+                    ExploreFolder(Config.TargetFolder);                              
+
             }
             catch (Exception ex)
             {
@@ -35,12 +46,36 @@ namespace Nova.Windows.DesktopSync
             }
             finally
             {
-                Settings.Default.Save();
-                Console.WriteLine();
-                ConsoleColor.TextStatus.WriteLine($"END: DesktopSync");
-                Console.WriteLine();
-                Console.Out.Wait();
+                Finalize();
+                if (!hideWindow && HasSwitch(args, "p", "pause"))
+                    Console.Out.Wait();
             }
+        }
+
+        private static void ExploreFolder(string folder)
+        {
+            ConsoleColor.TextStatus.WriteLine($"Exploring folder: {folder}");
+            Process.Start(folder);
+        }
+
+
+        private static bool HasSwitch(string[] args, params string[] options)
+        {
+            var removeChars = new char[] { '/', '-', ' ' };
+            var cleanArgs = args.Select(a => a.RemoveAll(removeChars).ToLower());
+            var cleanOptions = options?.Select(o => o?.RemoveAll(removeChars).ToLower());
+            var matched = cleanArgs.Intersect(cleanOptions);
+            return matched.Any();
+        }
+
+
+        private static void Finalize()
+        {
+            Settings.Default.Save();
+            Console.WriteLine();
+            ConsoleColor.TextStatus.WriteLine($"END: DesktopSync");
+            Console.WriteLine();
+
         }
 
         private static void FolderSync(SyncFolderConfig folderConfig)

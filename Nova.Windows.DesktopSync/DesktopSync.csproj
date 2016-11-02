@@ -78,8 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nova.Windows.DesktopSync.Configuration\DesktopSync.Config.csproj">
-      <Project>{B28A236B-2851-4181-B791-73E495C059E3}</Project>
+      <Project>{b28a236b-2851-4181-b791-73e495c059e3}</Project>
       <Name>DesktopSync.Config</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

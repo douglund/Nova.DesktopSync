@@ -6,6 +6,15 @@ namespace Nova.Windows.DesktopSync
 {
     public static class StringExtensions
     {
+
+        public static string RemoveAll(this string input, params char[] replace)
+        {
+
+            var output = new string(input.Except(replace).ToArray());
+            return output;
+
+        }
+
         /// <summary>
         /// Pads the string equally from the left and right with spaces to center text horizontally.
         /// </summary>

@@ -1,12 +1,22 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using static Nova.Windows.DesktopSync.ConsoleConfig;
 
 namespace Nova.Windows.DesktopSync
 {
     public static class ConsoleExtensions
     {
+        [DllImport("kernel32.dll")]
+        static extern IntPtr GetConsoleWindow();
+
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        const int SW_HIDE = 0;
+        const int SW_SHOW = 5;
+
         public static void WriteException(this TextWriter consoleWriter, Exception ex, bool isFatal = true)
         {
 
@@ -92,6 +102,25 @@ namespace Nova.Windows.DesktopSync
             consoleWriter.ClearLine();
             cursor.RecallState();
             return r;
+        }
+
+
+        public static void HideWindow(this TextWriter consoleWriter)
+        {
+            var handle = GetConsoleWindow();
+
+            // Hide
+            ShowWindow(handle, SW_HIDE);
+
+        }
+
+        public static void ShowWindow(this TextWriter consoleWriter)
+        {
+            var handle = GetConsoleWindow();
+            
+            // Show
+            ShowWindow(handle, SW_SHOW);
+
         }
 
         public static void ClearLine(this TextWriter consoleWriter, int? yPosition = null)

@@ -54,7 +54,7 @@
 		<title>Installation Database</title>
 		<subject>DesktopSync</subject>
 		<author>##ID_STRING2##</author>
-		<keywords>Installer,MSI,Database</keywords>
+		<keywords>Installer,MSI</keywords>
 		<comments>Contact:  Your local administrator</comments>
 		<template>Intel;1033</template>
 		<lastauthor>Administrator</lastauthor>
@@ -340,9 +340,9 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>DesktopSync.Config.Primary_output</td><td>{D7CB9661-ABE6-40C5-BD5D-30B7270143AC}</td><td>INSTALLDIR</td><td>2</td><td/><td>desktopsync.config.primary_o</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DesktopSync.Content_Files</td><td>{2A0F3A6A-4188-4DA9-9A2D-43FBE816B5CA}</td><td>INSTALLDIR</td><td>2</td><td/><td>desktopsync.content_files</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DesktopSync.Primary_output1</td><td>{A0FC9CF7-F10E-40FA-8DA5-FDEA9A4EEC9A}</td><td>INSTALLDIR</td><td>2</td><td/><td>desktopsync.primary_output1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>DesktopSync.Config.Primary_output</td><td>{7152971A-F835-4D21-8991-519AF5775CB4}</td><td>INSTALLDIR</td><td>2</td><td/><td>desktopsync.config.primary_o</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>DesktopSync.Content_Files</td><td>{312CDEA4-0555-4AEB-89EA-94202FCF7D32}</td><td>INSTALLDIR</td><td>2</td><td/><td>desktopsync.content_files</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>DesktopSync.Primary_output</td><td>{135992D0-EE90-4EBC-A002-C2674616538C}</td><td>INSTALLDIR</td><td>2</td><td/><td>desktopsync.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1054,7 +1054,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>INSTALLDIR</td><td>DesktopSync.Config.Primary_output</td></row>
 		<row><td>INSTALLDIR</td><td>DesktopSync.Content_Files</td></row>
-		<row><td>INSTALLDIR</td><td>DesktopSync.Primary_output1</td></row>
+		<row><td>INSTALLDIR</td><td>DesktopSync.Primary_output</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1175,7 +1175,8 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
-		<row><td>deskto_1_desktopsync</td><td>novaware</td><td>DESKTO~1|DesktopSync</td><td/><td>1</td><td/></row>
+		<row><td>deskto_1_desktopsync</td><td>ProgramMenuFolder</td><td>DESKTO~1|Desktop Sync</td><td/><td>1</td><td/></row>
+		<row><td>deskto_1_desktopsync1</td><td>novaware</td><td>DESKTO~1|DesktopSync</td><td/><td>1</td><td/></row>
 		<row><td>novaware</td><td>ProgramMenuFolder</td><td>Novaware</td><td/><td>1</td><td/></row>
 	</table>
 
@@ -1870,7 +1871,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>DesktopSync.Config.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>DesktopSync.Content_Files</td></row>
-		<row><td>AlwaysInstall</td><td>DesktopSync.Primary_output1</td></row>
+		<row><td>AlwaysInstall</td><td>DesktopSync.Primary_output</td></row>
 	</table>
 
 	<table name="File">
@@ -1887,7 +1888,7 @@
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>desktopsync.config.primary_o</td><td>DesktopSync.Config.Primary_output</td><td>DesktopSync.Config.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;DesktopSync.Config&gt;|Built</td><td>3</td><td/></row>
 		<row><td>desktopsync.content_files</td><td>DesktopSync.Content_Files</td><td>DesktopSync.Content Files</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;DesktopSync1&gt;|ContentFiles</td><td>3</td><td/></row>
-		<row><td>desktopsync.primary_output1</td><td>DesktopSync.Primary_output1</td><td>DesktopSync.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;DesktopSync1&gt;|Built</td><td>3</td><td/></row>
+		<row><td>desktopsync.primary_output</td><td>DesktopSync.Primary_output</td><td>DesktopSync.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;DesktopSync1&gt;|Built</td><td>3</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2029,9 +2030,9 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>DesktopSync.Config.Primary_output</td><td/><td/><td>_5B596D14_3ADB_448C_AFEF_9D4DB9708E70_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DesktopSync.Content_Files</td><td/><td/><td>_97E53D9E_9482_4567_8540_995A497D0598_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DesktopSync.Primary_output1</td><td/><td/><td>_764B68B0_50CD_49CF_BE75_252B2C8E553E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>DesktopSync.Config.Primary_output</td><td/><td/><td>_086C9D22_4ED3_4785_A84E_3E8A9B448808_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>DesktopSync.Content_Files</td><td/><td/><td>_564084FE_8EAF_4C57_984F_1072AA92AA6C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>DesktopSync.Primary_output</td><td/><td/><td>_782A34D8_8A26_4EBF_BF0B_B687CEE846BB_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3435,6 +3436,8 @@
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>-324779162</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>-324779162</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-324784922</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>Desktop Sync</td><td>0</td><td/><td>363129876</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>Desktop Sync</td><td>0</td><td/><td>363097204</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>-324779162</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>-324779162</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>-324779162</td></row>
@@ -3723,9 +3726,14 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-324779162</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-324779162</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-324779162</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.Novaware.com</td><td>0</td><td/><td>-324784727</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.Novaware.com</td><td>0</td><td/><td>363116402</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>Novaware</td><td>0</td><td/><td>-324784727</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-324762394</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>363104275</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>DESKTO~1|Desktop Sync</td><td>0</td><td/><td>363086580</td></row>
+		<row><td>ID_STRING6</td><td>1033</td><td>DESKTO~1|Desktop Sync</td><td>0</td><td/><td>363109396</td></row>
+		<row><td>ID_STRING7</td><td>1033</td><td>Desktop Sync</td><td>0</td><td/><td>363076660</td></row>
+		<row><td>ID_STRING8</td><td>1033</td><td>Desktop Sync</td><td>0</td><td/><td>363097204</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-324779162</td></row>
 	</table>
 
@@ -3840,6 +3848,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>_Built_EFC8428868B240A4BD4780F1A2A333E5.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Nova.Windows.DesktopSync\NovitecWebIcon.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3972,7 +3981,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{176B0912-F2E4-4DDF-A513-A8ED98B1B0ED}</td></row>
 		<row><td>ISUSSignature</td><td>{8CCB03C5-7E77-42A7-87F4-04F434E57B24}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewUpdateService,viewSystemSearch,viewCustomActions,viewRelease,viewISToday,viewProject</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewUpdateService,viewSystemSearch,viewCustomActions,viewRelease,viewISToday,viewProject,viewAppFiles,viewShortcuts</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4425,6 +4434,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
+		<row><td>_Built</td><td>DesktopSync.Primary_output</td><td/><td>deskto_1_desktopsync1</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4510,6 +4520,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>_Built</td><td>deskto_1_desktopsync1</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>DesktopSync.Primary_output</td><td>AlwaysInstall</td><td>-PAUSE</td><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>DesktopSync.Primary_output</td><td>AlwaysInstall</td><td>-PAUSE</td><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace Nova.Windows.DesktopSync.Configuration
 {
-    [Serializable]
+    [Serializable]    
     public class SyncConfig : INotifyPropertyChanged
     {
         private bool _overwrite;

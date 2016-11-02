@@ -1,5 +1,8 @@
-﻿namespace Nova.Windows.DesktopSync.Configuration
+﻿using System;
+
+namespace Nova.Windows.DesktopSync.Configuration
 {
+    [Serializable]
     public enum SyncStatusType
     {
         None,

@@ -5,6 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "DesktopSync.Setup", "DesktopSync.Setup\DesktopSync.Setup.isproj", "{BC8C9E2C-D97E-4108-8924-6D025EEFDE82}"
 	ProjectSection(ProjectDependencies) = postProject
+		{1086863F-686C-4A08-A644-7C1E0CF3A050} = {1086863F-686C-4A08-A644-7C1E0CF3A050}
 		{B28A236B-2851-4181-B791-73E495C059E3} = {B28A236B-2851-4181-B791-73E495C059E3}
 	EndProjectSection
 EndProject
